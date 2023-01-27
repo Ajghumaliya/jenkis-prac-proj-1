@@ -9,5 +9,9 @@ EXPOSE 80
 RUN apt-get install -y python3
 RUN apt-get install -y pip3
 RUN pip3 install Flask
+COPY website.wsgi /var/www/website/
+COPY website/__init__.py /var/www/website/website/
+COPy website.conf /etc/apache2/sites-available
+RUN service apache2 restart
 ENTRYPOINT ["/usr/sbin/apache2ctl"]
 CMD ["-D","FOREGROUND"]
