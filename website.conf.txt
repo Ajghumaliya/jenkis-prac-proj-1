@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-        ServerName 15.207.107.58
+        ServerName 15.206.166.79
         ServerAdmin kaushik.ghumaliya@allieddigital.com
         WSGIScriptAlias / /var/www/website/website.wsgi
         <Directory /var/www/website/website>
