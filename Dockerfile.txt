@@ -1,0 +1,13 @@
+FROM ubuntu:latest
+RUN apt-get -y update
+RUN mkdir /var/www/website
+RUN mkdir /var/www/website/website
+RUN mkdir /var/www/website/website/static
+WORKDIR /var/www/website/website/
+RUN apt-get install -y apache2
+EXPOSE 80
+RUN apt-get install -y python3
+RUN apt-get install -y pip3
+RUN pip3 install Flask
+ENTRYPOINT ["/usr/sbin/apache2ctl"]
+CMD ["-D","FOREGROUND"]
